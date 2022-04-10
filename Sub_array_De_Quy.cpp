@@ -54,6 +54,6 @@ int main() {
 	cout << "kich thuoc ?"; cin >> n;	
 	int arr[n];
 	int dau, cuoi;
-	max_sub(0, n-1, dau, cuoi, input(n, arr));
+	int sum = max_sub(0, n-1, dau, cuoi, input(n, arr));
 	cout << "Tong: " << sum << " - [l:r] = [" << dau << ":" << cuoi << "]\n";
 }
