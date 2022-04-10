@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
-#include <math.h>
+
 using namespace std;
 
-int *input(int n) {
-	int arr[n];
+int *input(int n, int *arr) {
 	int i;
 	for (i = 0; i < n; i++) {
 		cout << "Mhap phan tu mang thu " << i << ": "; cin >> arr[i];
@@ -26,7 +25,7 @@ int max_left(int i, int j, int &dau, int *arr) {
 int max_right(int i, int j, int &cuoi, int *arr) {
 	int max_sum = INT_MIN;
 	int sum = 0, k;
-	for ( k = i; k >=j; k++) {
+	for ( k = i; k <= j; k++) {
 		sum += arr[k];
 		if (max_sum < sum) {	max_sum = sum;	cuoi = k;}
 	}
@@ -53,7 +52,8 @@ int max_sub (int i, int j, int &dau, int &cuoi, int *arr) {
 int main() {
 	int n;
 	cout << "kich thuoc ?"; cin >> n;	
+	int arr[n];
 	int dau, cuoi;
-	max_sub(0, n-1, dau, cuoi, input(n));
-	cout << "Tong: " << " - [l:r] = [" << dau << ":" << cuoi << "]\n";
+	max_sub(0, n-1, dau, cuoi, input(n, arr));
+	cout << "Tong: " << sum << " - [l:r] = [" << dau << ":" << cuoi << "]\n";
 }
